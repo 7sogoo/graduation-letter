@@ -1,0 +1,16 @@
+{
+  "name": "graduation-letter",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "qr": "node scripts/generate-qr.mjs"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4",
+    "vite": "^8.1.0"
+  }
+}
