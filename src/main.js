@@ -104,6 +104,30 @@ function createIntro(onOpen) {
   return intro;
 }
 
+function renderParagraph(p) {
+  if (typeof p === "string") {
+    return `<p class="letter__paragraph">${escapeHtml(p)}</p>`;
+  }
+
+  const html = p
+    .map((seg) => {
+      if (!seg.reveal) return escapeHtml(seg.t);
+      return `<button type="button" class="letter__wink" data-label="${escapeHtml(seg.t)}" data-reveal="${escapeHtml(seg.reveal)}">${escapeHtml(seg.t)}</button>`;
+    })
+    .join("");
+
+  return `<p class="letter__paragraph">${html}</p>`;
+}
+
+function bindWinks(root) {
+  root.querySelectorAll(".letter__wink").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const revealed = btn.classList.toggle("letter__wink--on");
+      btn.textContent = revealed ? btn.dataset.reveal : btn.dataset.label;
+    });
+  });
+}
+
 function createLetter() {
   const scene = document.createElement("main");
   scene.className = "letter-scene";
@@ -112,9 +136,7 @@ function createLetter() {
     ? `<p class="letter__opening">${escapeHtml(letter.opening)}</p>`
     : "";
 
-  const paragraphs = letter.paragraphs
-    .map((text) => `<p class="letter__paragraph">${escapeHtml(text)}</p>`)
-    .join("");
+  const paragraphs = letter.paragraphs.map((p) => renderParagraph(p)).join("");
 
   scene.innerHTML = `
     <article class="letter">
@@ -135,6 +157,8 @@ function createLetter() {
       </footer>
     </article>
   `;
+
+  bindWinks(scene);
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => scene.classList.add("visible"));
