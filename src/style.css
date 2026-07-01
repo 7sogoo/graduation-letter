@@ -543,12 +543,14 @@ body.body--letter {
 .letter-scene.visible .letter__date { animation-delay: 0.35s; }
 .letter-scene.visible .letter__recipient { animation-delay: 0.45s; }
 .letter-scene.visible .letter__paragraph:nth-of-type(1) { animation-delay: 0.65s; }
-.letter-scene.visible .letter__paragraph:nth-of-type(2) { animation-delay: 0.78s; }
-.letter-scene.visible .letter__paragraph:nth-of-type(3) { animation-delay: 0.91s; }
-.letter-scene.visible .letter__paragraph:nth-of-type(4) { animation-delay: 1.04s; }
-.letter-scene.visible .letter__paragraph:nth-of-type(5) { animation-delay: 1.17s; }
-.letter-scene.visible .letter__closing { animation-delay: 1.32s; }
-.letter-scene.visible .letter__signature { animation-delay: 1.45s; }
+.letter-scene.visible .letter__paragraph:nth-of-type(2) { animation-delay: 0.76s; }
+.letter-scene.visible .letter__paragraph:nth-of-type(3) { animation-delay: 0.87s; }
+.letter-scene.visible .letter__paragraph:nth-of-type(4) { animation-delay: 0.98s; }
+.letter-scene.visible .letter__paragraph:nth-of-type(5) { animation-delay: 1.09s; }
+.letter-scene.visible .letter__paragraph:nth-of-type(6) { animation-delay: 1.2s; }
+.letter-scene.visible .letter__paragraph:nth-of-type(7) { animation-delay: 1.31s; }
+.letter-scene.visible .letter__closing { animation-delay: 1.45s; }
+.letter-scene.visible .letter__signature { animation-delay: 1.55s; }
 
 @keyframes inkReveal {
   from {
