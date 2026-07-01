@@ -39,7 +39,7 @@ html {
 
 body {
   min-height: 100dvh;
-  font-family: "IM Fell English", Georgia, "Times New Roman", serif;
+  font-family: "Noto Serif", Georgia, "Times New Roman", serif;
   color: var(--ink);
   background: var(--intro-bg);
   overflow-x: hidden;
@@ -513,7 +513,8 @@ body.body--letter {
 }
 
 .letter__greeting {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.12rem;
   position: relative;
   z-index: 1;
 }
@@ -521,8 +522,20 @@ body.body--letter {
 .letter__paragraph {
   margin-bottom: 1rem;
   text-align: justify;
-  hyphens: auto;
+  hyphens: none;
+  -webkit-hyphens: none;
+  word-break: normal;
+  overflow-wrap: break-word;
   color: var(--ink-faded);
+  position: relative;
+  z-index: 1;
+}
+
+.letter__opening {
+  font-size: 1.12rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  color: var(--ink);
   position: relative;
   z-index: 1;
 }
@@ -538,14 +551,16 @@ body.body--letter {
 }
 
 .letter__signature {
-  font-family: "Pinyon Script", cursive;
-  font-size: 2.4rem;
+  font-family: "Noto Serif", Georgia, serif;
+  font-style: italic;
+  font-size: 1.35rem;
   color: var(--ink);
   line-height: 1.2;
   margin-top: 0.25rem;
 }
 
 /* stagger text reveal */
+.letter-scene.visible .letter__opening,
 .letter-scene.visible .letter__date,
 .letter-scene.visible .letter__recipient,
 .letter-scene.visible .letter__greeting,
@@ -555,19 +570,16 @@ body.body--letter {
   animation: inkReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 
+.letter-scene.visible .letter__opening { animation-delay: 0.55s; }
 .letter-scene.visible .letter__date { animation-delay: 0.35s; }
 .letter-scene.visible .letter__recipient { animation-delay: 0.45s; }
-.letter-scene.visible .letter__greeting { animation-delay: 0.55s; }
 .letter-scene.visible .letter__paragraph:nth-of-type(1) { animation-delay: 0.65s; }
 .letter-scene.visible .letter__paragraph:nth-of-type(2) { animation-delay: 0.78s; }
 .letter-scene.visible .letter__paragraph:nth-of-type(3) { animation-delay: 0.91s; }
 .letter-scene.visible .letter__paragraph:nth-of-type(4) { animation-delay: 1.04s; }
 .letter-scene.visible .letter__paragraph:nth-of-type(5) { animation-delay: 1.17s; }
-.letter-scene.visible .letter__paragraph:nth-of-type(6) { animation-delay: 1.3s; }
-.letter-scene.visible .letter__paragraph:nth-of-type(7) { animation-delay: 1.43s; }
-.letter-scene.visible .letter__paragraph:nth-of-type(8) { animation-delay: 1.56s; }
-.letter-scene.visible .letter__closing { animation-delay: 1.7s; }
-.letter-scene.visible .letter__signature { animation-delay: 1.85s; }
+.letter-scene.visible .letter__closing { animation-delay: 1.32s; }
+.letter-scene.visible .letter__signature { animation-delay: 1.45s; }
 
 @keyframes inkReveal {
   from {
@@ -599,7 +611,7 @@ body.body--letter {
   }
 
   .letter__signature {
-    font-size: 2.75rem;
+    font-size: 1.45rem;
   }
 }
 

@@ -15,6 +15,12 @@ function navigate(path) {
   render();
 }
 
+function escapeHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
+}
+
 function createStars() {
   const container = document.createElement("div");
   container.className = "stars";
@@ -25,14 +31,12 @@ function createStars() {
   for (let i = 0; i < count; i++) {
     const star = document.createElement("span");
     star.className = Math.random() > 0.75 ? "stars__sparkle" : "stars__dot";
-
     star.style.left = `${Math.random() * 100}%`;
     star.style.setProperty("--drift-x", `${-40 + Math.random() * 80}px`);
     star.style.setProperty("--scale", (0.3 + Math.random() * 1.1).toFixed(2));
     star.style.setProperty("--opacity", (0.25 + Math.random() * 0.55).toFixed(2));
     star.style.animationDuration = `${10 + Math.random() * 18}s`;
     star.style.animationDelay = `${Math.random() * 12}s`;
-
     container.appendChild(star);
   }
 
@@ -52,7 +56,7 @@ function createStars() {
 function createIntro(onOpen) {
   const intro = document.createElement("section");
   intro.className = "intro";
-  intro.setAttribute("aria-label", "Open the letter");
+  intro.setAttribute("aria-label", "Открой письмо");
 
   intro.appendChild(createStars());
 
@@ -67,11 +71,11 @@ function createIntro(onOpen) {
         <div class="envelope__flap">
           <span class="envelope__flap-edge" aria-hidden="true"></span>
         </div>
-        <button type="button" class="envelope__seal" aria-label="Break the seal">
+        <button type="button" class="envelope__seal" aria-label="Нажми на печать">
           <span class="envelope__seal-mark" aria-hidden="true">♥</span>
         </button>
       </div>
-      <p class="intro__hint">Tap the seal to open</p>
+      <p class="intro__hint">Нажми на печать</p>
   `;
 
   intro.appendChild(stage);
@@ -90,7 +94,6 @@ function createIntro(onOpen) {
   };
 
   seal.addEventListener("click", open);
-
   seal.addEventListener("keydown", (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -104,6 +107,10 @@ function createIntro(onOpen) {
 function createLetter() {
   const scene = document.createElement("main");
   scene.className = "letter-scene";
+
+  const opening = letter.opening
+    ? `<p class="letter__opening">${escapeHtml(letter.opening)}</p>`
+    : "";
 
   const paragraphs = letter.paragraphs
     .map((text) => `<p class="letter__paragraph">${escapeHtml(text)}</p>`)
@@ -119,8 +126,9 @@ function createLetter() {
       <header class="letter__header">
         <p class="letter__date">${escapeHtml(letter.date)}</p>
       </header>
-      <p class="letter__recipient">${escapeHtml(letter.recipient)}</p>
-      <p class="letter__greeting">${escapeHtml(letter.greeting)}</p>
+      ${letter.recipient ? `<p class="letter__recipient">${escapeHtml(letter.recipient)}</p>` : ""}
+      ${letter.greeting ? `<p class="letter__greeting">${escapeHtml(letter.greeting)}</p>` : ""}
+      ${opening}
       ${paragraphs}
       <footer class="letter__footer">
         <p class="letter__closing">${escapeHtml(letter.closing)}</p>
@@ -134,12 +142,6 @@ function createLetter() {
   });
 
   return scene;
-}
-
-function escapeHtml(text) {
-  const div = document.createElement("div");
-  div.textContent = text;
-  return div.innerHTML;
 }
 
 function clearView() {

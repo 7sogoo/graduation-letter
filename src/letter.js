@@ -1,17 +1,18 @@
-// Edit your letter here — paste your words when you're ready.
+// Замени «Давка» и «Цог» на нужные имена.
 export const letter = {
-  recipient: "Her name",
-  greeting: "My dearest,",
+  recipient: "",
+  greeting: "Дорогая Давка!",
+  opening: "",
   paragraphs: [
-    "I wish I could hand you this letter in person today — sit across from you, watch your smile as you open it, and tell you how proud I am out loud.",
-    "But even oceans apart, my heart is right there with you. Every late-night study session you pushed through, every doubt you overcame, every small victory you barely celebrated — I saw all of it, even from far away.",
-    "Today you graduate, and that is not just a ceremony. It is proof of who you are: brave, brilliant, and more capable than you sometimes let yourself believe.",
-    "So when you walk across that stage, know that somewhere else in the world, someone is cheering for you so loudly the universe might hear it.",
-    "I love you. Congratulations — this is only the beginning.",
+    "От всей души поздравляю тебя с окончанием университета! Это действительно дорогого стоит, ведь ты не просто получила диплом, а прошла через настоящее испытание. Ты училась вдали от дома, от родных и близких, в чужой стране, среди незнакомого языка и культуры. Далеко не каждый способен на такое, а ты справилась блестяще.",
+    "Годы учёбы за границей были не только про лекции и экзамены. Это ещё и умение быть самостоятельной, находить силы справляться с трудностями в одиночку, привыкать к новому месту и новым людям. Ты доказала себе и всем вокруг, что способна на многое, показав невероятное упорство, смелость и настоящую зрелость.",
+    "Пусть этот диплом станет не финалом, а лишь началом, стартовой точкой для ещё более ярких свершений. Сейчас перед тобой открывается совершенно новая глава, и я искренне верю, что ты пройдёшь её с тем же достоинством, целеустремлённостью и лёгкостью, с какими прошла студенческие годы. И что бы ни случилось дальше, не бойся, я рядом.",
+    "Желаю тебе крепкого здоровья, вдохновения, интересных возможностей и людей, которые будут ценить тебя так же, как ценю тебя я. Пусть твои амбиции всегда находят поддержку, а мечты превращаются в реальность. И оставайся такой же, с этой твоей улыбкой, ради которой хочется улыбаться в ответ.",
+    "Поздравляю с этим важным этапом жизни! Горжусь тобой.",
   ],
-  closing: "Forever yours,",
-  signature: "Your name",
-  date: new Date().toLocaleDateString("en-US", {
+  closing: "С любовью и нежностью,",
+  signature: "Цог",
+  date: new Date().toLocaleDateString("ru-RU", {
     year: "numeric",
     month: "long",
     day: "numeric",
