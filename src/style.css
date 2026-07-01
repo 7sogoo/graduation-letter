@@ -435,45 +435,14 @@ body.body--letter {
   transform: perspective(900px) rotateX(0deg) translateY(0) scale(1);
 }
 
-/* ruled lines like handwritten letter */
-.letter::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    transparent,
-    transparent 27px,
-    rgba(100, 70, 40, 0.07) 27px,
-    rgba(100, 70, 40, 0.07) 28px
-  );
-  pointer-events: none;
-  margin-top: 4.5rem;
-}
-
 /* aged edges */
-.letter::after {
+.letter::before {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(80, 50, 20, 0.06) 100%);
   pointer-events: none;
-}
-
-.letter__fold {
-  position: absolute;
-  top: 33%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(80, 55, 30, 0.12) 15%,
-    rgba(80, 55, 30, 0.18) 50%,
-    rgba(80, 55, 30, 0.12) 85%,
-    transparent 100%
-  );
-  pointer-events: none;
+  border-radius: inherit;
 }
 
 .letter__corner {

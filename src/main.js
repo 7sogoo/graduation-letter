@@ -122,7 +122,6 @@ function createLetter() {
       <span class="letter__corner letter__corner--tr" aria-hidden="true">❧</span>
       <span class="letter__corner letter__corner--bl" aria-hidden="true">❧</span>
       <span class="letter__corner letter__corner--br" aria-hidden="true">❧</span>
-      <div class="letter__fold" aria-hidden="true"></div>
       <header class="letter__header">
         <p class="letter__date">${escapeHtml(letter.date)}</p>
       </header>
