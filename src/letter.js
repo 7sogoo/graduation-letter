@@ -17,9 +17,5 @@ export const letter = {
   ],
   closing: "С любовью и нежностью",
   signature: "Цог",
-  date: new Date().toLocaleDateString("ru-RU", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }),
+  date: "2 июля 2026 г.",
 };
